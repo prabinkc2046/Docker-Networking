@@ -4,13 +4,14 @@ In this demo, we will create a Docker network and run two applications, MySQL an
 
 # Instructions
 
-Building the "Myapp" Docker Image
+## Building the "Myapp" Docker Image
+
 Build the Docker image for the "Myapp" application using the following command:
 
 ```
 docker build -t myapp .
 ```
-Creating a Docker Bridge Network
+## Creating a Docker Bridge Network
 
 Create a Docker bridge network called "app-mysql-network" for the applications to communicate with each other:
 
@@ -18,7 +19,7 @@ Create a Docker bridge network called "app-mysql-network" for the applications t
 docker network create app-mysql-network
 ```
 
-Deploying the MySQL Container
+## Deploying the MySQL Container
 
 Deploy a MySQL container using the following command:
 
@@ -34,7 +35,13 @@ mysql:latest
 
 Wait for approximately 30 seconds to ensure the MySQL container is fully initialized.
 
-Deploying the "Myapp" Application
+or check the logs with following command and when the mysql is up and running, deploy "Myapp" Application;
+
+```
+docker logs -f mysql_host
+```
+
+## Deploying the "Myapp" Application
 
 Deploy the "Myapp" application within the same network using the following command:
 
