@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myapp
+    ports:
+      - 5000:5000
+    networks:
+      - myapp-mysql-network
+    depends_on:
+      - mysql_host
+  
+  mysql_host:
+    image: mysql:latest
+    volumes:
+      - myapp-mysql-data:/var/lib/mysql
+    networks:
+      - myapp-mysql-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=prabin12345
+      - MYSQL_USER=prabin
+      - MYSQL_PASSWORD=prabin
+      - MYSQL_DATABASE=mydatabase
+
+networks:
+  myapp-mysql-network:
+volumes:
+  myapp-mysql-data:

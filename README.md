@@ -57,3 +57,78 @@ This demo demonstrates the setup of a Docker network and the deployment of two a
 
 Make sure to follow the instructions in the order specified to successfully run the demo.
 
+# Using Docker Compose
+
+The earlier process of running multiple containers can be greatly simplified using Docker Compose. To run the application with Docker Compose, follow these steps:
+
+    1.Make sure you have Docker Compose installed on your system.
+
+    2.Create a file named docker-compose.yml in your project directory and copy the following contents into it:
+
+```
+version: '3.9'
+services:
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myapp
+    ports:
+      - 5000:5000
+    networks:
+      - myapp-mysql-network
+    depends_on:
+      - mysql_host
+
+  mysql_host:
+    image: mysql:latest
+    volumes:
+      - myapp-mysql-data:/var/lib/mysql
+    networks:
+      - myapp-mysql-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=prabin12345
+      - MYSQL_USER=prabin
+      - MYSQL_PASSWORD=prabin
+      - MYSQL_DATABASE=mydatabase
+
+networks:
+  myapp-mysql-network:
+
+volumes:
+  myapp-mysql-data:
+```
+
+Run the following command to start the containers:
+
+```
+docker-compose up -d
+```
+
+## Accessing the Application
+
+Once the containers are up and running, you can access the "Myapp" application by opening a web browser and visiting http://localhost:5000. You should see the following page:
+
+![Myapp Running](https://github.com/prabinkc2046/Docker-Networking/blob/main/Myapp%20is%20running.png)
+
+## Connecting to MySQL
+
+The "Myapp" application is now connected to a MySQL database running in a separate container. You can interact with the database using the following credentials:
+
+    - Host: mysql_host
+    - Port: 3306
+    - Username: prabin
+    - Password: prabin
+    - Database: mydatabase
+
+![My app Connected to MySQL](https://github.com/prabinkc2046/Docker-Networking/blob/main/Myapp%20is%20connected%20to%20MySQL.png)
+
+
+## Stopping the Application
+
+To stop the application and the associated containers, run the following command:
+```
+docker-compose down
+```
+
+That's it! By using Docker Compose, the process of running multiple containers has been greatly simplified.
