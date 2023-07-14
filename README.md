@@ -123,7 +123,7 @@ The "Myapp" application is now connected to a MySQL database running in a separa
 
 You should see the following page:
 
-	![MyAPP connecting to MySQL container](https://github.com/prabinkc2046/Docker-Networking/blob/main/Screenshot/Screenshot-Myapp%20connecting%20to%20Mysql.png)
+	![MyAPP connecting to MySQL container](https://github.com/prabinkc2046/Docker-Networking/Screenshot/Screenshot-Myapp connecting to Mysql.png)
 
 
 ## Stopping the Application
