@@ -109,6 +109,7 @@ docker-compose up -d
 
 Once the containers are up and running, you can access the "Myapp" application by opening a web browser and visiting http://localhost:5000. You should see the following page:
 
+
 ![MyApp is running](https://github.com/prabinkc2046/Docker-Networking/blob/main/Screenshot/Screenshot-Myapp%20is%20running.png)
 
 
@@ -124,7 +125,8 @@ The "Myapp" application is now connected to a MySQL database running in a separa
 
 You should see the following page:
 
-	![MyAPP connecting to MySQL container](https://github.com/prabinkc2046/Docker-Networking/blob/main/Screenshot/Screenshot-Myapp%20connecting%20to%20Mysql.png)
+
+![MyAPP connecting to MySQL container](https://github.com/prabinkc2046/Docker-Networking/blob/main/Screenshot/Screenshot-Myapp%20connecting%20to%20Mysql.png)
 
 
 ## Stopping the Application
