@@ -133,4 +133,5 @@ To stop the application and the associated containers, run the following command
 docker-compose down
 ```
 
+
 That's it! By using Docker Compose, the process of running multiple containers has been greatly simplified.
